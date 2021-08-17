@@ -1,0 +1,25 @@
+ {
+"name": "instaus",
+  "description": "Instaus. instagram userbot",
+  "keywords": [
+    "telegram",
+    "userbot"
+  ],
+  "repository": "https://github.com/nekozu/instaus",
+  "env": {
+    "username": {
+      "description": "Username instagram",
+      "required": true
+    },
+    "password": {
+      "description": "Instagram password.",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "stack": "heroku-20"
+}
