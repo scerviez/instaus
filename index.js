@@ -7,7 +7,6 @@ client.on('connected', () => {
 });
 
 client.on('messageCreate', async function(ctx) {
-  try {
        var text = ctx.content;
        if (RegExp(".ping", "i").exec(text)) {
            let t0 = performance.now();
@@ -34,10 +33,6 @@ client.on('messageCreate', async function(ctx) {
            var pesan = 'Ditemukan : '+text+'\n'+judul+'\nUrl: '+link+'\nDeskripsi: '+desk
             return ctx.reply(pesan);
        }
-  } catch (e) {
-        console.log(e)
-    }
-
 });
 
 client.login(process.env.username, process.env.password);
