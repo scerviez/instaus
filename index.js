@@ -32,7 +32,11 @@ client.on('messageCreate', async function(ctx) {
            var desk = hai.desk
            var pesan = 'Ditemukan : '+text+'\n'+judul+'\nUrl: '+link+'\nDeskripsi: '+desk
             return ctx.reply(pesan);
-        }
-}); 
+    }
+ } catch (e) {
+     console.log(e)
+ }
+
+});
 
 client.login(process.env.username, process.env.password);
