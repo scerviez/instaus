@@ -37,6 +37,7 @@ client.on('messageCreate', async function(ctx) {
        if (RegExp(".del ", "i").exec(text)) {
            let ps = ctx.id
            return ctx.delete(ps)
+       }
 });
 
 client.login(process.env.username, process.env.password);
