@@ -34,8 +34,10 @@ client.on('messageCreate', async function(ctx) {
            var pesan = 'Ditemukan : '+text+'\n'+judul+'\nUrl: '+link+'\nDeskripsi: '+desk
             return ctx.reply(pesan);
        }
-       if (RegExp(".bts ", "i").exec(text)) {
-           return ctx.sendPhoto('https://pencarikode.xyz/api/bts?apikey=APIKEY')
+       if (new RegExp(".kbbi", "i").exec(text)) {
+           const kb = await axios.get(`https://kbbi-api.xlaaf.repl.co/search?kata=${text.replace(/([.*kbbi ])/ig,"")}`)
+           const bi = kb.data.data.arti
+           return await ctx.reply('Kata: '+text+'\nArti: '+bi)
        }
 });
 
