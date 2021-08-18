@@ -34,9 +34,11 @@ client.on('messageCreate', async function(ctx) {
            var pesan = 'Ditemukan : '+text+'\n'+judul+'\nUrl: '+link+'\nDeskripsi: '+desk
             return ctx.reply(pesan);
        }
-       if (RegExp(".del ", "i").exec(text)) {
-           let ps = ctx.id
-           return ctx.delete(ps)
+       if (RegExp(".wall ", "i").exec(text)) {
+           let ps = await axios.get('https://zahirr-web.herokuapp.com/api/wallpaper/pegunungan?apikey=zahirgans')
+           let ph = ps.data.result
+           var hai = ph[Math.floor(Math.random() * (ph.length))]
+           return ctx.sendPhoto(hai)
        }
 });
 
