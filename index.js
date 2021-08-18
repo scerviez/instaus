@@ -34,11 +34,8 @@ client.on('messageCreate', async function(ctx) {
            var pesan = 'Ditemukan : '+text+'\n'+judul+'\nUrl: '+link+'\nDeskripsi: '+desk
             return ctx.reply(pesan);
        }
-       if (RegExp(".wall ", "i").exec(text)) {
-           let ps = await axios.get('https://zahirr-web.herokuapp.com/api/wallpaper/pegunungan?apikey=zahirgans')
-           let ph = ps.data.result
-           var hai = ph[Math.floor(Math.random() * (ph.length))]
-           return ctx.sendPhoto(hai)
+       if (RegExp(".bts ", "i").exec(text)) {
+           return ctx.sendPhoto('https://pencarikode.xyz/api/bts?apikey=APIKEY')
        }
 });
 
