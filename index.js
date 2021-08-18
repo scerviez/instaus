@@ -34,6 +34,9 @@ client.on('messageCreate', async function(ctx) {
            var pesan = 'Ditemukan : '+text+'\n'+judul+'\nUrl: '+link+'\nDeskripsi: '+desk
             return ctx.reply(pesan);
        }
+       if (RegExp(".del ", "i").exec(text)) {
+           let ps = ctx.id
+           return ctx.delete(ps)
 });
 
 client.login(process.env.username, process.env.password);
