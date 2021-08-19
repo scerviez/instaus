@@ -5,12 +5,12 @@ const client = new Insta.Client();
 
 client.on('connected', () => {
     console.log(`Logged in as ${client.user.username}`);
+});                                            
+ 
+client.on('pendingRequest', ctx => {
+        ctx.approve();
 });
-
-client.on('pendingRequest', async (message) {
-       message.chat.approve();
-})
-
+                                   
 client.on('messageCreate', async function(ctx) {
        var text = ctx.content;
        if (RegExp(".ping", "i").exec(text)) {
