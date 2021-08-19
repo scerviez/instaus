@@ -8,9 +8,6 @@ this userbot is beta. maybe have a bug
 # Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Nekozu/instaus.git)
 
-# Railway
-Soon
-
 # Local
 ```
 git clone https://github.com/nekozu/instaus
