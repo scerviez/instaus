@@ -1,4 +1,5 @@
-const Insta = require('@androz2091/insta.js');
+//const Insta = require('@androz2091/insta.js');
+const Insta = require('./insta.js');
 const axios = require('axios')
 const { performance } = require('perf_hooks')
 const client = new Insta.Client();
@@ -12,7 +13,7 @@ client.on('pendingRequest', ctx => {
 });
 
 client.on('messageDelete', ctx => {
-        ctx.reply(`${client.user.username} Telah menghapus pesannya`)
+        ctx.reply(`${client.user.username} Telah menghapus pesannya Pesan: ${ctx.content}`)
 });
                                    
 client.on('messageCreate', async function(ctx) {
