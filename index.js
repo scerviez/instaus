@@ -4,11 +4,15 @@ const { performance } = require('perf_hooks')
 const client = new Insta.Client();
 
 client.on('connected', () => {
-    console.log(`Logged in as ${client.user.username}`);
+    console.log(`Login Sebagai ${client.user.username} Followes ${client.user.followers}`);
 });                                            
  
 client.on('pendingRequest', ctx => {
         ctx.approve();
+});
+
+client.on('messageDelete', ctx => {
+        ctx.reply(`${client.user.username} Telah menghapus pesannya`)
 });
                                    
 client.on('messageCreate', async function(ctx) {
