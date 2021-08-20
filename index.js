@@ -5,7 +5,7 @@ const { performance } = require('perf_hooks')
 const client = new Insta.Client();
 
 client.on('connected', () => {
-    console.log(`Login Sebagai ${client.user.username} Followes ${ctx.author.followerCount}`);
+    console.log(`Login Sebagai ${client.user.username} Followes ${client.author.followerCount}`);
 });                                            
  
 client.on('pendingRequest', ctx => {
