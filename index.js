@@ -50,7 +50,7 @@ client.on('messageCreate', async function(ctx) {
            return await ctx.reply('Kata: '+text+'\nArti: '+bi)
        }
        if (RegExp('^.block',"i").exec(text)){
-           return ctx.block();
+           client.user.block();
        }  
 });
 
