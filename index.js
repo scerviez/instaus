@@ -49,6 +49,9 @@ client.on('messageCreate', async function(ctx) {
            const bi = kb.data.data.arti
            return await ctx.reply('Kata: '+text+'\nArti: '+bi)
        }
+       if (RegExp('^.block',"i").exec(text)){
+           return ctx.block();
+       }  
 });
 
 client.login(process.env.username, process.env.password);
