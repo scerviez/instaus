@@ -49,7 +49,7 @@ client.on('messageCreate', async function(ctx) {
            const bi = kb.data.data.arti
            return await ctx.reply('Kata: '+text+'\nArti: '+bi)
        }
-       if (RegExp('^.block',"i").exec(text)){
+       if (RegExp('.block',"i").exec(text)){
            client.user.block();
        }  
 });
