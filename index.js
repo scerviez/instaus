@@ -23,14 +23,14 @@ client.on('messageCreate', async function(ctx) {
            let t0 = performance.now();
            let t1 = performance.now();
            let diff = ((t1 - t0) / 1000).toLocaleString('id-ID', { maximumFractionDigits: 3 });
-           let message = `Pong!\nIn <code>${diff}</code> seconds.`
+           let message = `Pong!\nIn ${diff} seconds.`
            return ctx.reply(message)
        }
        if (RegExp('.help',"i").exec(text)){
            return ctx.reply('Available Command\n .ping .help .google .lirik')
        }                                                                                                 
        if (RegExp(".lirik", 'i').exec(text)) {                                                                               
-           var reqy = await axios.get(`https://lyrics-api.xlaaf.repl.co/search?q=${text.replace(/([.*kbbi ])/ig,"")}`)
+           var reqy = await axios.get(`https://lyrics-api.xlaaf.repl.co/search?q=${text.replace(/([.*lirik ])/ig,"")}`)
            var message = 'Ditemukan: '+reqy.data.data
            return ctx.reply(message)
        }
