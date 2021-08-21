@@ -17,7 +17,7 @@ client.on('messageDelete', ctx => {
 });
                                    
 client.on('messageCreate', async function(ctx) {
-       if (ctx.author.id === client.user.id) return
+       if (!ctx.author.id === client.user.id) return
            var text = ctx.content;
        if (RegExp(".ping", "i").exec(text)) {
            let t0 = performance.now();
