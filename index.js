@@ -1,5 +1,5 @@
 //const Insta = require('@androz2091/insta.js');
-onst Insta = require('./insta.js');
+const Insta = require('./insta.js');
 const axios = require('axios')
 const { performance } = require('perf_hooks')
 const client = new Insta.Client();
@@ -17,11 +17,10 @@ client.on('messageDelete', ctx => {
 });
         
 client.on('newFollower', ctx => {
-        console.log(`${client.user.username} Baru saja mengikutimu`)
+        console.log(`Seseorang Baru saja mengikutimu`)
 });
 
 client.on('messageCreate', async function(ctx) {
-       if (!ctx.author.id === !client.user.id) return
            var text = ctx.content;
        if (RegExp(".ping", "i").exec(text)) {
            let t0 = performance.now();
