@@ -2,9 +2,7 @@
 onst Insta = require('./insta.js');
 const axios = require('axios')
 const { performance } = require('perf_hooks')
-const client = new Insta.Client({
-    disableReplyPrefix: true
-});
+const client = new Insta.Client();
 
 client.on('connected', () => {
     console.log(`Login Sebagai ${client.user.username} Followes ${client.user.followerCount}`);
