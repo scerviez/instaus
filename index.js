@@ -2,7 +2,9 @@
 const Insta = require('./insta.js');
 const axios = require('axios')
 const { performance } = require('perf_hooks')
-const client = new Insta.Client();
+const client = new Insta.Client({
+    disableReplyPrefix: true
+});
 
 client.on('connected', () => {
     console.log(`Login Sebagai ${client.user.username} Followes ${client.user.followerCount}`);
@@ -15,7 +17,11 @@ client.on('pendingRequest', ctx => {
 client.on('messageDelete', ctx => {
         ctx.reply(`${client.user.username} Telah menghapus pesannya Pesan: ${ctx.content}`)
 });
-                                   
+        
+client.on('newFollower', ctx => {
+        console.log(`{$client.user.username} Baru saja mengikutimu`)
+});
+
 client.on('messageCreate', async function(ctx) {
        if (!ctx.author.id === !client.user.id) return
            var text = ctx.content;
@@ -48,10 +54,7 @@ client.on('messageCreate', async function(ctx) {
            const kb = await axios.get(`https://kbbi-api.xlaaf.repl.co/search?kata=${text.replace(/([.*kbbi ])/ig,"")}`)
            const bi = kb.data.data.arti
            return await ctx.reply('Kata: '+text+'\nArti: '+bi)
-       }
-       if (RegExp('.block',"i").exec(text)){
-           client.user.block();
-       }  
+       } 
 });
 
 client.login(process.env.username, process.env.password);
