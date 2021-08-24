@@ -1,5 +1,5 @@
 //const Insta = require('@androz2091/insta.js');
-const Insta = require('./insta.js');
+onst Insta = require('./insta.js');
 const axios = require('axios')
 const { performance } = require('perf_hooks')
 const client = new Insta.Client({
@@ -19,7 +19,7 @@ client.on('messageDelete', ctx => {
 });
         
 client.on('newFollower', ctx => {
-        console.log(`{$client.user.username} Baru saja mengikutimu`)
+        console.log(`${client.user.username} Baru saja mengikutimu`)
 });
 
 client.on('messageCreate', async function(ctx) {
