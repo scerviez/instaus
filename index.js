@@ -55,6 +55,13 @@ client.on('messageCreate', async function(ctx) {
            const bi = kb.data.data.arti
            return await ctx.reply('Kata: '+text+'\nArti: '+bi)
        } 
+       if (new RegExp(".nulis", "i").exec(text)) {
+       let abc = text.split("nulis ");
+        abc.shift();
+        fgah = abc.join(" ");
+        //console.log(message)                                                                                                                                                                                                       
+        return await ctx.chat.sendPhoto'http://api.zeks.xyz/api/nulis?text='+fgah+'&apikey=apivinz')
+       }
 });
 
 client.login(process.env.username, process.env.password);
