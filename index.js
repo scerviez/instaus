@@ -56,11 +56,10 @@ client.on('messageCreate', async function(ctx) {
            return await ctx.reply('Kata: '+text+'\nArti: '+bi)
        } 
        if (new RegExp(".nulis", "i").exec(text)) {
-       let abc = text.split("nulis ");
-        abc.shift();
-        fgah = abc.join(" ");
-        //console.log(message)                                                                                                                                                                                                       
-        return await ctx.chat.sendPhoto'http://api.zeks.xyz/api/nulis?text='+fgah+'&apikey=apivinz')
+           let abc = text.split("nulis ");
+           abc.shift();
+           fgah = abc.join(" ");                                                                                                                                                                                                       
+           return await ctx.chat.sendPhoto('http://api.zeks.xyz/api/nulis?text='+fgah+'&apikey=apivinz')
        }
 });
 
