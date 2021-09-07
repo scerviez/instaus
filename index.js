@@ -30,7 +30,7 @@ client.on('messageCreate', async function(ctx) {
            return ctx.reply(message)
        }
        if (RegExp('.help',"i").exec(text)){
-           return ctx.reply('Available Command\n .ping .help .google .lirik')
+           return ctx.reply('Available Command\n .ping .help .google .lirik .nulis')
        }                                                                                                 
        if (RegExp(".lirik", 'i').exec(text)) {                                                                               
            var reqy = await axios.get(`https://lyrics-api.xlaaf.repl.co/search?q=${text.replace(/([.*lirik ])/ig,"")}`)
@@ -57,6 +57,12 @@ client.on('messageCreate', async function(ctx) {
            abc.shift();
            fgah = abc.join(" ");                                                                                                                                                                                                       
            return await ctx.chat.sendPhoto('http://api.zeks.xyz/api/nulis?text='+fgah+'&apikey=apivinz')
+       }
+       if (new RegExp(".p", "i").exec(text)) {
+           var pe = await axios.get(`https://pixabay.com/api/?key=23222672-df1e44006d10a67ad23fd0d18&q=${text.replace(/([.*p ])/ig,"")}`)
+           var ok = pe.data.hits
+           var hai = ok[Math.floor(Math.random() * (ok.length))]                                                                                                                                                                                                        
+           return await ctx.chat.sendPhoto(hai.previewURL)
        }
 });
 
