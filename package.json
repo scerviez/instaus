@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "@androz2091/insta.js": "^1.6.1",
-    "axios": "^0.21.3"
+    "axios": "^0.21.4"
   }
 }
