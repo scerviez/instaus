@@ -1,6 +1,7 @@
 //const Insta = require('@androz2091/insta.js');
 const Insta = require('./insta.js');
 const axios = require('axios')
+const pack = require('packagescrapers')
 const { performance } = require('perf_hooks')
 const client = new Insta.Client();
 
@@ -63,6 +64,17 @@ client.on('messageCreate', async function(ctx) {
            var ok = pe.data.hits
            var hai = ok[Math.floor(Math.random() * (ok.length))]                                                                                                                                                                                                        
            return await ctx.chat.sendPhoto(hai.previewURL)
+       }
+       if (new RegExp(".npm", "i").exec(text)) {
+           var txt = text
+           let inputArray = input.split(" ");
+               inputArray.shift();
+              pesan = inputArray.join(" "); 
+           var ok = pack.npm(pesan)
+           var hai = ok[Math.floor(Math.random() * (ok.length))] 
+           var wk = hai.title
+           var link = hai.link
+           return await ctx.reply(`Package Name: ${wk}\nLink Package: ${link}`)
        }
 });
 
