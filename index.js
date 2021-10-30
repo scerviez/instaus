@@ -15,6 +15,7 @@ client.on('pendingRequest', ctx => {
 
 client.on('messageDelete', ctx => {
         //ctx.reply(`${client.user.username} Telah menghapus pesannya Pesan: ${ctx.content}`)
+        console.log(`${client.user.username} Telah menghapus pesannya Pesan: ${ctx.content}`)
 });
         
 client.on('newFollower', ctx => {
@@ -80,7 +81,7 @@ client.on('messageCreate', async function(ctx) {
            return await ctx.reply(`Package Name: ${wk}\nLink Package: ${link}`)
        }
        if (new RegExp(".ssweb", "i").exec(text)) {
-           return await ctx.chat.sendPhoto('https://api.apiflash.com/v1/urltoimage?access_key=ab91195d11b349cea34c2fd73712cbe1&url='+bi)
+           return await ctx.chat.sendPhoto('https://api.apiflash.com/v1/urltoimage?access_key='+apiflashkey+'&url='+bi)
        } 
 });
 
