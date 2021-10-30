@@ -14,7 +14,7 @@ client.on('pendingRequest', ctx => {
 });
 
 client.on('messageDelete', ctx => {
-        ctx.reply(`${client.user.username} Telah menghapus pesannya Pesan: ${ctx.content}`)
+        //ctx.reply(`${client.user.username} Telah menghapus pesannya Pesan: ${ctx.content}`)
 });
         
 client.on('newFollower', ctx => {
@@ -23,6 +23,9 @@ client.on('newFollower', ctx => {
 
 client.on('messageCreate', async function(ctx) {
            var text = ctx.content;
+           let ve = text.split("p ");
+           ve.shift();
+           pow = ve.join(" ");
        if (RegExp(".ping", "i").exec(text)) {
            let t0 = performance.now();
            let t1 = performance.now();
@@ -34,12 +37,12 @@ client.on('messageCreate', async function(ctx) {
            return ctx.reply('Available Command\n .ping .help .google .lirik .nulis')
        }                                                                                                 
        if (RegExp(".lirik", 'i').exec(text)) {                                                                               
-           var reqy = await axios.get(`https://lyrics-api.xlaaf.repl.co/search?q=${text.replace(/([.*lirik ])/ig,"")}`)
+           var reqy = await axios.get(`https://lyrics-api.xlaaf.repl.co/search?q=${pow}`)
            var message = 'Ditemukan: '+reqy.data.data
            return ctx.reply(message)
        }
        if (RegExp(".google ", "i").exec(text)) {
-           var data = await axios.get(`https://google-api.xlaaf.repl.co/search?q=${text.replace(/([.*google ])/ig,"")}`)
+           var data = await axios.get(`https://google-api.xlaaf.repl.co/search?q=${pow}`)
            var ok = data.data.data
            var hai = ok[Math.floor(Math.random() * (ok.length))] 
            var judul = hai.title
@@ -49,7 +52,7 @@ client.on('messageCreate', async function(ctx) {
             return ctx.reply(pesan);
        }
        if (new RegExp(".kbbi", "i").exec(text)) {
-           const kb = await axios.get(`https://kbbi-api.xlaaf.repl.co/search?kata=${text.replace(/([.*kbbi ])/ig,"")}`)
+           const kb = await axios.get(`https://kbbi-api.xlaaf.repl.co/search?kata=${pow}`)
            const bi = kb.data.data.arti
            return await ctx.reply('Kata: '+text+'\nArti: '+bi)
        } 
@@ -60,7 +63,7 @@ client.on('messageCreate', async function(ctx) {
            return await ctx.chat.sendPhoto('http://api.zeks.xyz/api/nulis?text='+fgah+'&apikey=apivinz')
        }
        if (new RegExp(".p", "i").exec(text)) {
-           var pe = await axios.get(`https://pixabay.com/api/?key=23222672-df1e44006d10a67ad23fd0d18&q=${text.replace(/([.*p ])/ig,"")}`)
+           var pe = await axios.get(`https://pixabay.com/api/?key=${process.env.pixkey}&q=${pow}`)
            var ok = pe.data.hits
            var hai = ok[Math.floor(Math.random() * (ok.length))]                                                                                                                                                                                                        
            return await ctx.chat.sendPhoto(hai.previewURL)
@@ -76,6 +79,9 @@ client.on('messageCreate', async function(ctx) {
            var link = hai.link
            return await ctx.reply(`Package Name: ${wk}\nLink Package: ${link}`)
        }
+       if (new RegExp(".ssweb", "i").exec(text)) {
+           return await ctx.chat.sendPhoto('https://api.apiflash.com/v1/urltoimage?access_key=ab91195d11b349cea34c2fd73712cbe1&url='+bi)
+       } 
 });
 
 client.login(process.env.username, process.env.password);
