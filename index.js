@@ -81,7 +81,7 @@ client.on('messageCreate', async function(ctx) {
            return await ctx.reply(`Package Name: ${wk}\nLink Package: ${link}`)
        }
        if (new RegExp(".ssweb", "i").exec(text)) {
-           return await ctx.chat.sendPhoto('https://api.apiflash.com/v1/urltoimage?access_key='+apiflashkey+'&url='+bi)
+           return await ctx.chat.sendPhoto('https://api.apiflash.com/v1/urltoimage?access_key='+apiflashkey+'&url='+pow)
        } 
 });
 
