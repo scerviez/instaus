@@ -24,7 +24,7 @@ client.on('newFollower', ctx => {
 
 client.on('messageCreate', async function(ctx) {
            var text = ctx.content;
-           let ve = text.split("p ");
+           let ve = text.split(" ");
            ve.shift();
            pow = ve.join(" ");
        if (RegExp(".ping", "i").exec(text)) {
