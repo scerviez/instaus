@@ -14,11 +14,11 @@
     "password": {
       "description": "Instagram password.",
       "required": true
-    }
+    },
     "apiflashkey": {
       "description": "get it from https://di apiflash.com",
       "required": true
-    }
+    },
     "pixkey": {
       "description": "pixabay api",
       "required": false
