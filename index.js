@@ -4,6 +4,7 @@ const axios = require('axios')
 const pack = require('packagescrapers')
 const { performance } = require('perf_hooks')
 const client = new Insta.Client();
+const apiflashkey = process.env.apiflash
 
 client.on('connected', () => {
     console.log(`Login Sebagai ${client.user.username} Followes ${client.user.followerCount}`);
