@@ -1,4 +1,4 @@
- {
+{
 "name": "instaus",
   "description": "Instaus. instagram userbot",
   "keywords": [
@@ -23,7 +23,7 @@
       "description": "pixabay api",
       "required": false
     }
-  }
+  }, 
   "buildpacks": [
     {
       "url": "heroku/nodejs"
