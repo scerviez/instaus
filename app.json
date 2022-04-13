@@ -14,15 +14,15 @@
     "password": {
       "description": "Instagram password.",
       "required": true
-    }
+    },
     "apiflash": {
       "description": "get it from https://apiflash.com",
       "required": true
-    }
+    },
     "pixkey": {
       "description": "pixabay api",
       "required": false
-    }
+    },
   },
   "buildpacks": [
     {
