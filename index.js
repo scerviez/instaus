@@ -4,7 +4,6 @@ const axios = require('axios')
 const pack = require('packagescrapers')
 const { performance } = require('perf_hooks')
 const client = new Insta.Client();
-const apiflashkey = process.env.apiflash
 
 client.on('connected', () => {
     console.log(`Login Sebagai ${client.user.username} Followes ${client.user.followerCount}`);
@@ -75,9 +74,6 @@ client.on('messageCreate', async function(ctx) {
            var link = hai.link
            return await ctx.reply(`Package Name: ${wk}\nLink Package: ${link}`)
        }
-       if (new RegExp(".ssweb", "i").exec(text)) {
-           return await ctx.chat.sendPhoto('https://api.apiflash.com/v1/urltoimage?access_key='+apiflashkey+'&url='+pow)
-       } 
 });
 
 client.login(process.env.username, process.env.password);
