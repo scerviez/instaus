@@ -22,8 +22,8 @@
     "pixkey": {
       "description": "pixabay api",
       "required": false
-    },
-  },
+    }
+  }
   "buildpacks": [
     {
       "url": "heroku/nodejs"
