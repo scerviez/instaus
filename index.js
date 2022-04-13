@@ -35,7 +35,7 @@ client.on('messageCreate', async function(ctx) {
            return ctx.reply(message)
        }
        if (RegExp('.help',"i").exec(text)){
-           return ctx.reply('Available Command\n .ping .help .google .lirik .nulis')
+           return ctx.reply('Available Command\n .ping .help .google .lirik .p .npm .ssweb')
        }                                                                                                 
        if (RegExp(".lirik", 'i').exec(text)) {                                                                               
            var reqy = await axios.get(`https://lyrics-api.xlaaf.repl.co/search?q=${pow}`)
@@ -57,12 +57,6 @@ client.on('messageCreate', async function(ctx) {
            const bi = kb.data.data.arti
            return await ctx.reply('Kata: '+text+'\nArti: '+bi)
        } 
-       if (new RegExp(".nulis", "i").exec(text)) {
-           let abc = text.split("nulis ");
-           abc.shift();
-           fgah = abc.join(" ");                                                                                                                                                                                                       
-           return await ctx.chat.sendPhoto('http://api.zeks.xyz/api/nulis?text='+fgah+'&apikey=apivinz')
-       }
        if (new RegExp(".p", "i").exec(text)) {
            var pe = await axios.get(`https://pixabay.com/api/?key=${process.env.pixkey}&q=${pow}`)
            var ok = pe.data.hits
