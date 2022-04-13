@@ -15,8 +15,8 @@
       "description": "Instagram password.",
       "required": true
     }
-    "apiflashkey": {
-      "description": "get it from https://di apiflash.com",
+    "apiflash": {
+      "description": "get it from https://apiflash.com",
       "required": true
     }
     "pixkey": {
